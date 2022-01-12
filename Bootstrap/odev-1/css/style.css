@@ -1,0 +1,19 @@
+body {
+  background-color: #e9ecef;
+}
+
+.inner-container {
+  text-align: center;
+}
+
+.jumbotron {
+  height: 45vh;
+  background: url("/images/jumbotron-img.jpg");
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
