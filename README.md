@@ -3,10 +3,10 @@
 
 
 ## Ödev ile ilgili içerikler.
-### Bootstrap
+### Bootstrap odevleri
 ![bootstarp-odev-1-anasayfa](images/bootstrap-odev-1-anasayfa.png)
 
-### CSS
+### CSS odevleri
 ![css-odev-1-about](images/css-odev-1-about.png)
 
 ![css-odev-1-anasayfa](images/bootstrap-odev-1-anasayfa.png)
