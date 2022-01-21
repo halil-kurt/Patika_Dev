@@ -1,3 +1,9 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 /*****nav*******start********/
 .header {
   list-style-type: none;
@@ -83,6 +89,13 @@ box-shadow: 0 2px 3px 0 rgba(0,0,0,0.24), 0 2px 5px 0 rgba(0,0,0,0.19);
   fill: currentColor;
   line-height: 24px;
   position: relative;
+}
+
+/**** position to voice recoreder***/
+.voicerec{
+  width: 32px;
+  margin-top: 5px;
+  margin-right: 2px;
 }
 
 /**** voice recorder için tooltip****/
