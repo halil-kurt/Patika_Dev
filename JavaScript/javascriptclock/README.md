@@ -6,5 +6,7 @@
 ![img](images/clock.png)
 
 Bu projede kullanıcıdan kullanıcı ismi alınıyor ve DOM (Document Object Modular Kullanılark) ekrana yazdırılıyor.  
+Aynı yontemle tarih bilgisi ekrana yazdırılıyor.  
+Tarih bilgisi anlik olarak guncelleniyor.
 
-Aynı yontemle tarih bilgisi ekrana yazdırılıyor.
+
