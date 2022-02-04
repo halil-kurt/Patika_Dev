@@ -50,3 +50,28 @@ Dizi sıralandıktan sonra 18 avarage case kapsamına girer.
 2. [3,7|5,8,2,9,4,15,6]
 3. [3,5,7|8,2,9,4,15,6]
 4. [3,5,7,8|2,9,4,15,6]
+
+## ornek kod 
+```JavaScript
+
+let arr = [1,0,-1,34,0,4]; 
+
+function insertionSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        let current = arr[i];
+        let j = i-1;
+
+        while ((j > -1) && (current > arr[j])) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+
+        arr[j+1] = current;
+    }
+
+    return arr;
+}
+
+console.log(insertionSort(arr));
+
+```
