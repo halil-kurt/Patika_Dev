@@ -19,7 +19,7 @@ function newElement() {
         inputDOM.value = "";
     } else {
         // hata mesajı ver
-        // failed();
+        failed();
     }
 }
 
@@ -35,5 +35,11 @@ function addChild(liDOM, listDOM) {
 // element ekleme işlemi başarılı olursa mesaj ver
 function accomplished() {
     var toast = new bootstrap.Toast(liveToast);
+    toast.show();
+}
+
+//element ekleme işlemi başarılı olursa mesaj ver
+function failed() {
+    var toast = new bootstrap.Toast(errorToast);
     toast.show();
 }
