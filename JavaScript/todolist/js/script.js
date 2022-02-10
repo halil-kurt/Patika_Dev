@@ -1,6 +1,7 @@
 const inputDOM = document.getElementById("task");
 const listDOM = document.getElementById("list");
-
+const liveToast = document.getElementById("liveToast");
+const errorToast = document.getElementById("errorToast");
 
 // ekle butonuna basıldığında çalışacak fonksyon
 function newElement() {
@@ -28,5 +29,11 @@ function addChild(liDOM, listDOM) {
     listDOM.appendChild(liDOM);
 
     // işlem başarılı mesajını ver
-    // accomplished();
+    accomplished();
+}
+
+// element ekleme işlemi başarılı olursa mesaj ver
+function accomplished() {
+    var toast = new bootstrap.Toast(liveToast);
+    toast.show();
 }
