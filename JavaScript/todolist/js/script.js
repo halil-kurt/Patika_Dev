@@ -11,7 +11,7 @@ function newElement() {
         // yeni bir li elementi oluştur
         let liDOM = document.createElement("li");
         liDOM.classList.add("list-group-item")
-        liDOM.innerHTML = `
+        liDOM.innerHTML = `<span class="check">&#9989; </span>
         ${inputDOM.value}
         <span class="close remove">&times;</span>`;
 
@@ -51,21 +51,22 @@ function failed() {
 //-------- Listeden element silme ve seçme ----
 
 
-document.addEventListener("click", function (e) {
-    let classList = e.target.classList;
+document.addEventListener("click", function (event) {
+    let classList = event.target.classList;
 
+    // close işaretine tıklanırsa elemenı sil.
     if (classList.contains("remove")) {
-        list.removeChild(e.target.parentElement)
+        list.removeChild(event.target.parentElement)
     }
 
     // liste elamanlarına tıklanırsa
     if (classList.contains("list-group-item")) {
-        isActive(classList, e);
+        isActive(classList, event);
     }
 })
 
 
-function isActive(classList, e) {
+function isActive(classList, event) {
     // active klası varsa sil yoksa ekle
     if (classList.contains("active")) {
         classList.remove("active");
@@ -73,5 +74,17 @@ function isActive(classList, e) {
     else {
         classList.add("active");
     }
+    
+    addCheckBox(event);
+}
 
+// aktif elemente check box ekle
+function addCheckBox(event) {
+    let checkSpan = event.target.childNodes[0];
+    if (checkSpan.classList.contains("check")) {
+        checkSpan.classList.remove("check");
+        
+    } else {
+        checkSpan.classList.add("check");
+    }
 }

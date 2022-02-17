@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+.check {
+  display:none;
+}
+
+
 ul {
   margin: 0;
   padding: 0;
