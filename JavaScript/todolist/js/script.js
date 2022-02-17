@@ -11,7 +11,9 @@ function newElement() {
         // yeni bir li elementi oluştur
         let liDOM = document.createElement("li");
         liDOM.classList.add("list-group-item")
-        liDOM.innerHTML = inputDOM.value
+        liDOM.innerHTML = `
+        ${inputDOM.value}
+        <span class="close remove">&times;</span>`;
 
         // ekele
         addChild(liDOM, listDOM);
@@ -51,6 +53,10 @@ function failed() {
 
 document.addEventListener("click", function (e) {
     let classList = e.target.classList;
+
+    if (classList.contains("remove")) {
+        list.removeChild(e.target.parentElement)
+    }
 
     // liste elamanlarına tıklanırsa
     if (classList.contains("list-group-item")) {
