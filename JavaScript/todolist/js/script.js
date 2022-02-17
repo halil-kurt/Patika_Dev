@@ -10,7 +10,8 @@ function newElement() {
     if (inputDOM.value != "") {
         // yeni bir li elementi oluştur
         let liDOM = document.createElement("li");
-        liDOM.innerHTML = inputDOM.value;
+        liDOM.classList.add("list-group-item")
+        liDOM.innerHTML = inputDOM.value
 
         // ekele
         addChild(liDOM, listDOM);
@@ -38,8 +39,33 @@ function accomplished() {
     toast.show();
 }
 
-//element ekleme işlemi başarılı olursa mesaj ver
+//element ekleme işlemi başarısız olursa mesaj ver
 function failed() {
     var toast = new bootstrap.Toast(errorToast);
     toast.show();
+}
+
+
+//-------- Listeden element silme ve seçme ----
+
+
+document.addEventListener("click", function (e) {
+    let classList = e.target.classList;
+
+    // liste elamanlarına tıklanırsa
+    if (classList.contains("list-group-item")) {
+        isActive(classList, e);
+    }
+})
+
+
+function isActive(classList, e) {
+    // active klası varsa sil yoksa ekle
+    if (classList.contains("active")) {
+        classList.remove("active");
+    }
+    else {
+        classList.add("active");
+    }
+
 }
