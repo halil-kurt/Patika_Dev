@@ -83,6 +83,7 @@ const menu = [
 ];
 
 const btnContainer = document.getElementById("btnContainer");
+const cardContainer = document.getElementById("cardContainer");
 
 // kategori listesi oluştur.
 const createCategoryList = () => {
@@ -95,6 +96,11 @@ const createCategoryList = () => {
     return categoryList;
 };
 
+// data'yı kullanıcıya göster.
+const displayItems = (data, lactoion) => {
+    lactoion.innerHTML = data.join(""); // join("") -> list to str
+};
+
 // Butonları oluştur.
 const createBtns = () => {
     let categoryList = createCategoryList();
@@ -104,11 +110,33 @@ const createBtns = () => {
     });
     displayItems(categotyBtns, btnContainer);
 };
-
-// data'yı kullanıcıya göster.
-const displayItems = (data, lactoion) => {
-    lactoion.innerHTML = data.join(""); // join("") -> list to str
-};
-
 createBtns();
+
+// card elemanlarını oluştur.
+const createCards = () => {
+    let cardItems = menu.map(menuItem => {
+        return `
+        <div class="col">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-5">
+              <img class="img img-fluid img-thumbnail" src="${menuItem.img}" 
+              alt="${menuItem.title}img">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title d-inline">${menuItem.title} </h5>
+                <h6 class="price">${menuItem.price}</h4>
+                <hr>
+                <p class="card-text">${menuItem.desc}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`
+    });
+    displayItems(cardItems, cardContainer);
+};
+createCards();
+
 createCategoryList();
