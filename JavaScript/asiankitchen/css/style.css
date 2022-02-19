@@ -3,3 +3,10 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: #ff6a23;
+  }
