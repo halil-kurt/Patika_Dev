@@ -113,7 +113,7 @@ const createBtns = () => {
 createBtns();
 
 // card elemanlarını oluştur.
-const createCards = () => {
+const createCards = (menu) => {
     let cardItems = menu.map(menuItem => {
         return `
         <div class="col">
@@ -137,6 +137,31 @@ const createCards = () => {
     });
     displayItems(cardItems, cardContainer);
 };
-createCards();
+createCards(menu);
+
+// tıklanan butonun id sine göre kategori belirle.
+const btns = document.querySelectorAll(".btn");
+btns.forEach(btn => {
+    btn.addEventListener("click", event => {
+        let category = event.target.dataset.id;
+
+        filterMenu(category);
+    });
+});
+
+// menüyü kategoriye göre filtrele.
+const filterMenu = (category) => {
+    const clicedCategory = menu.filter(menuItem => {
+        if (menuItem.category == category){
+            return menuItem;
+        };
+    });
+    if (category == "All"){
+        createCards(menu);
+    }
+    else {
+        createCards(clicedCategory);
+    }
+}
 
 createCategoryList();
