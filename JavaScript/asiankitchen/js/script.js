@@ -85,24 +85,30 @@ const menu = [
 const btnContainer = document.getElementById("btnContainer");
 
 // kategori listesi oluştur.
-const categoryList = ["All"];
 const createCategoryList = () => {
+    const categoryList = ["All"];
     menu.forEach(item => {
         if (!categoryList.includes(item.category)) {
             categoryList.push(item.category);
         };
     });
-    displayBtns();
+    return categoryList;
 };
 
-// Butonları kullanıcıya göster.
-const displayBtns = () => {
+// Butonları oluştur.
+const createBtns = () => {
+    let categoryList = createCategoryList();
     const categotyBtns = categoryList.map(category => {
-        return `<button class="btn btn-outline-dark mr-3" data-id="${category}">${category}</button>`
+        return `<button class="btn btn-outline-dark mr-3"
+         data-id="${category}">${category}</button>`;
     });
-    btnContainer.innerHTML = categotyBtns.join("");
+    displayItems(categotyBtns, btnContainer);
 };
 
+// data'yı kullanıcıya göster.
+const displayItems = (data, lactoion) => {
+    lactoion.innerHTML = data.join(""); // join("") -> list to str
+};
 
-
+createBtns();
 createCategoryList();
