@@ -10,3 +10,10 @@ h2 {
     text-align: center;
     color: #ff6a23;
   }
+
+#btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}

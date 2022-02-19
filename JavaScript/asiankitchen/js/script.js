@@ -81,3 +81,28 @@ const menu = [
         desc: `Red bean paste dessert, serving with honey.`,
     },
 ];
+
+const btnContainer = document.getElementById("btnContainer");
+
+// kategori listesi oluştur.
+const categoryList = ["All"];
+const createCategoryList = () => {
+    menu.forEach(item => {
+        if (!categoryList.includes(item.category)) {
+            categoryList.push(item.category);
+        };
+    });
+    displayBtns();
+};
+
+// Butonları kullanıcıya göster.
+const displayBtns = () => {
+    const categotyBtns = categoryList.map(category => {
+        return `<button class="btn btn-outline-dark mr-3" data-id="${category}">${category}</button>`
+    });
+    btnContainer.innerHTML = categotyBtns.join("");
+};
+
+
+
+createCategoryList();
