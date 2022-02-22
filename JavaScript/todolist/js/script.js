@@ -14,8 +14,10 @@ function newElement() {
         liDOM.innerHTML = `<span class="check">&#9989; </span>
         ${inputDOM.value}
         <span class="close remove">&times;</span>`;
-
-        // ekele
+        // elemana id ekle
+        let id = inputDOM.value;
+        liDOM.id = id;
+        // elemanı listeye ekle.
         addChild(liDOM, listDOM);
 
         // inputu temizle
@@ -26,17 +28,19 @@ function newElement() {
     }
 }
 
-
 function addChild(liDOM, listDOM) {
     // elemanı listeye ekle
     listDOM.appendChild(liDOM);
 
+    // set to local storage.
+    setToSorage(liDOM);
+
     // işlem başarılı mesajını ver
-    accomplished();
+    successful();
 }
 
 // element ekleme işlemi başarılı olursa mesaj ver
-function accomplished() {
+function successful() {
     var toast = new bootstrap.Toast(liveToast);
     toast.show();
 }
@@ -47,19 +51,29 @@ function failed() {
     toast.show();
 }
 
+///------ local storage işlemleri------
+
+// elemanı local storage a ekle.
+let setToSorage = (liDOM) => {
+    localStorage.setItem(liDOM.id, liDOM.innerHTML);
+}
+
 
 //-------- Listeden element silme ve seçme ----
 
 
 document.addEventListener("click", function (event) {
     let classList = event.target.classList;
-
-    // close işaretine tıklanırsa elemenı sil.
+    let liItem = event.target.parentElement;
+    // close işaretine tıklanırsa elemanı sil.
     if (classList.contains("remove")) {
-        list.removeChild(event.target.parentElement)
+        list.removeChild(liItem);
+
+        // elemanı local storage dan sil.
+        localStorage.removeItem(liItem.id);
     }
 
-    // liste elamanlarına tıklanırsa
+    // liste elemanlarına tıklanırsa
     if (classList.contains("list-group-item")) {
         isActive(classList, event);
     }
@@ -74,7 +88,7 @@ function isActive(classList, event) {
     else {
         classList.add("active");
     }
-    
+
     addCheckBox(event);
 }
 
@@ -83,7 +97,7 @@ function addCheckBox(event) {
     let checkSpan = event.target.childNodes[0];
     if (checkSpan.classList.contains("check")) {
         checkSpan.classList.remove("check");
-        
+
     } else {
         checkSpan.classList.add("check");
     }
