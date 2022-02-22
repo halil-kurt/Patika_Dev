@@ -3,6 +3,16 @@ const listDOM = document.getElementById("list");
 const liveToast = document.getElementById("liveToast");
 const errorToast = document.getElementById("errorToast");
 
+// Local Storage daki veriyi çek.
+const storedData = {...localStorage}
+let keys = Object.keys(storedData);
+let liItems = "" 
+keys.forEach((key) => {
+    liItems += `<li class = "list-group-item" id = "${key}">${localStorage.getItem(key)}</li>`;
+})
+// veriyi ekrana yazdır.
+listDOM.innerHTML = liItems;
+
 // ekle butonuna basıldığında çalışacak fonksyon
 function newElement() {
 
