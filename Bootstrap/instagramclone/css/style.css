@@ -11,6 +11,12 @@ nav {
   max-height: 200px !important;
 }
 
+.card-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 ::placeholder{
   text-align: center;
   font-size: 14px;
