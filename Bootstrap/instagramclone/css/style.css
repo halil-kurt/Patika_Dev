@@ -11,8 +11,10 @@ nav {
   text-align: center;
   font-size: 14px;
   color: gray;
-  background-position: 40%;
+  background-position: 1%;
   background-size: 6%;
+  background-image: url("/instagramclone/assets/search-solid.svg");
+  background-repeat:no-repeat;
 }
 
 input.empty {
