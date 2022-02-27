@@ -11,6 +11,12 @@ nav {
   max-height: 200px !important;
 }
 
+#sticky-sidebar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 .card-body {
   display: flex;
   flex-wrap: wrap;
