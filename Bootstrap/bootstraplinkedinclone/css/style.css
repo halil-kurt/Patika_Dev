@@ -78,17 +78,17 @@ input.content::placeholder {
 }
 
 .blue {
-  fill:blue;
+  fill: #70B5F9;
 }
 
 .green {
-  fill: green;
+  fill: #7FC15E;
 }
 .orange {
-  fill:orange;
+  fill: #E7A33E;
 }
 .purple {
-  fill: purple;
+  fill: #F5987E;
 }
 
 div.card {
